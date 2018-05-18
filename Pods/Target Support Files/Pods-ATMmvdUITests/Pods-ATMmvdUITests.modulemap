@@ -1,0 +1,6 @@
+framework module Pods_ATMmvdUITests {
+  umbrella header "Pods-ATMmvdUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
