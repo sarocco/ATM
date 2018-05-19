@@ -17,6 +17,7 @@
 		41E883D120AF84DC0045A95B /* ATMmvdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E883D020AF84DC0045A95B /* ATMmvdTests.swift */; };
 		41E883DC20AF84DC0045A95B /* ATMmvdUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E883DB20AF84DC0045A95B /* ATMmvdUITests.swift */; };
 		41E883EA20AF8B1F0045A95B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E883E920AF8B1F0045A95B /* SecondViewController.swift */; };
+		41E883EC20AFBB8B0045A95B /* ATM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E883EB20AFBB8B0045A95B /* ATM.swift */; };
 		D876C4362A611DD44D365F4F /* Pods_ATMmvd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6005F027B120B627BE7621E /* Pods_ATMmvd.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		41E883DB20AF84DC0045A95B /* ATMmvdUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATMmvdUITests.swift; sourceTree = "<group>"; };
 		41E883DD20AF84DC0045A95B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41E883E920AF8B1F0045A95B /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		41E883EB20AFBB8B0045A95B /* ATM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATM.swift; sourceTree = "<group>"; };
 		7387E5927017006ED1AFBE29 /* Pods_ATMmvdTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ATMmvdTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D0484D9B0C23E1245B3EF5C /* Pods-ATMmvdTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATMmvdTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ATMmvdTests/Pods-ATMmvdTests.release.xcconfig"; sourceTree = "<group>"; };
 		923B5F800FF6D01C6C05AD7D /* Pods-ATMmvd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATMmvd.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATMmvd/Pods-ATMmvd.debug.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			children = (
 				41E883BB20AF84DB0045A95B /* AppDelegate.swift */,
 				41E883BD20AF84DB0045A95B /* ViewController.swift */,
+				41E883EB20AFBB8B0045A95B /* ATM.swift */,
 				41E883BF20AF84DB0045A95B /* Main.storyboard */,
 				41E883E920AF8B1F0045A95B /* SecondViewController.swift */,
 				41E883C220AF84DB0045A95B /* Assets.xcassets */,
@@ -442,9 +445,18 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ATMmvd/Pods-ATMmvd-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -460,6 +472,7 @@
 			files = (
 				41E883EA20AF8B1F0045A95B /* SecondViewController.swift in Sources */,
 				41E883BE20AF84DB0045A95B /* ViewController.swift in Sources */,
+				41E883EC20AFBB8B0045A95B /* ATM.swift in Sources */,
 				41E883BC20AF84DB0045A95B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

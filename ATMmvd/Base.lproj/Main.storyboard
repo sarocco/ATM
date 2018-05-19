@@ -33,7 +33,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="9E9-bb-x6Q"/>
                     <connections>
-                        <segue destination="SIF-Uz-ztL" kind="show" id="i25-lq-50Z"/>
+                        <segue destination="SIF-Uz-ztL" kind="show" identifier="goToATM" id="i25-lq-50Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -7,19 +7,25 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
+    
+    var ATMs:[ATM] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func loadItems(){
+        let URL = "https://ucu-atm.herokuapp.com/api/atm"
+        Alamofire.request(URL).responseString { (response: DataResponse<[ATM]>) in
+            self.ATMs = response.result.value!;
+        }
+
     }
-
-
 }
 
