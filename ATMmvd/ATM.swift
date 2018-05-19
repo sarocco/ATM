@@ -8,10 +8,11 @@
 
 import Foundation
 import ObjectMapper
+import CoreLocation
 
 class ATM: NSObject, Mappable{
     var id: Int?
-    var location: String?
+    var location: CLLocationCoordinate2D?
     var address: String?
     var network: String?
     var status: String?
@@ -30,6 +31,7 @@ class ATM: NSObject, Mappable{
     
     func mapping(map: Map) {
         id <- map["id"]
+        location <- map["location"]
         address <- map["address"]
         network <- map["network"]
         status <- map["status"]

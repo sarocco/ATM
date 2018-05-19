@@ -8,24 +8,29 @@
 
 import UIKit
 import Alamofire
+import AlamofireObjectMapper
+import MapKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var mapView: MKMapView!
     
     var ATMs:[ATM] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
+        loadItems()
         
     }
 
     func loadItems(){
         let URL = "https://ucu-atm.herokuapp.com/api/atm"
-        Alamofire.request(URL).responseString { (response: DataResponse<[ATM]>) in
-            self.ATMs = response.result.value!;
+        Alamofire.request(URL).responseArray { (response: DataResponse<[ATM]>) in
+            self.ATMs = response.result.value!
+            for atm in self.ATMs {
+                self.mapView.addAnnotation(atm as! MKAnnotation)
+            }
         }
-
     }
 }
 
