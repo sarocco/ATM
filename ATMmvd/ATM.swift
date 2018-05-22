@@ -10,9 +10,9 @@ import Foundation
 import ObjectMapper
 import CoreLocation
 
-class ATM: NSObject, Mappable{
+class ATM: NSObject, Mappable {
     var id: Int?
-    var location: CLLocationCoordinate2D?
+    var location: CLLocationCoordinate2D
     var address: String?
     var network: String?
     var status: String?
@@ -23,6 +23,19 @@ class ATM: NSObject, Mappable{
     
     override init() {
         super.init()
+    }
+    
+    init (id: Int, location: CLLocationCoordinate2D, address: String, network: String, status: String, money: Bool, deposits: Bool, image:String, open_hours: String){
+        self.id = id
+        self.location = location
+        self.address = address
+        self.network = network
+        self.status = status
+        self.has_money = money
+        self.accepts_deposits = deposits
+        self.image = image
+        self.open_hours = open_hours
+        
     }
     
     convenience required init?(map: Map) {

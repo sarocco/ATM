@@ -15,20 +15,23 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
-    var ATMs:[ATM] = []
+    var atms:[ATM] = []
+    var annotation = MKPointAnnotation()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadItems()
-        
+        loadAtms()
     }
 
-    func loadItems(){
+    func loadAtms(){
         let URL = "https://ucu-atm.herokuapp.com/api/atm"
         Alamofire.request(URL).responseArray { (response: DataResponse<[ATM]>) in
-            self.ATMs = response.result.value!
-            for atm in self.ATMs {
-                self.mapView.addAnnotation(atm as! MKAnnotation)
+            self.atms = response.result.value!
+            for atm in self.atms {
+                self.annotation.coordinate = atm.location
+                /*self.annotation.coordinate = CLLocationCoordinate2D(latitude: (atm.location.latitude)!, longitude: (atm.location.longitud)!)*/
+                self.annotation.title = atm.address
+                self.mapView.addAnnotation(self.annotation)
             }
         }
     }

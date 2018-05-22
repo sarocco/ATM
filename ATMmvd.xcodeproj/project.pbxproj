@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1AB7BF7107654BD7800A9A4F /* Pods_ATMmvdTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7387E5927017006ED1AFBE29 /* Pods_ATMmvdTests.framework */; };
 		298E19842FB3C58A2A1A6E55 /* Pods_ATMmvdUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA74999A3FA3E16E5CEE1F14 /* Pods_ATMmvdUITests.framework */; };
+		411B264D20B4D01D00519920 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411B264C20B4D01D00519920 /* Location.swift */; };
 		41E883BC20AF84DB0045A95B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E883BB20AF84DB0045A95B /* AppDelegate.swift */; };
 		41E883BE20AF84DB0045A95B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E883BD20AF84DB0045A95B /* ViewController.swift */; };
 		41E883C120AF84DB0045A95B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41E883BF20AF84DB0045A95B /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 		306CB9B6AFF27770A6BFF36C /* Pods-ATMmvd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATMmvd.release.xcconfig"; path = "Pods/Target Support Files/Pods-ATMmvd/Pods-ATMmvd.release.xcconfig"; sourceTree = "<group>"; };
 		3B1EE9148DAC4824397DFF34 /* Pods-ATMmvdUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATMmvdUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATMmvdUITests/Pods-ATMmvdUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3D835BF32B70A2E16EFBC839 /* Pods-ATMmvdTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATMmvdTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATMmvdTests/Pods-ATMmvdTests.debug.xcconfig"; sourceTree = "<group>"; };
+		411B264C20B4D01D00519920 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		41E883B820AF84DB0045A95B /* ATMmvd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATMmvd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41E883BB20AF84DB0045A95B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41E883BD20AF84DB0045A95B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				41E883BB20AF84DB0045A95B /* AppDelegate.swift */,
 				41E883BD20AF84DB0045A95B /* ViewController.swift */,
 				41E883EB20AFBB8B0045A95B /* ATM.swift */,
+				411B264C20B4D01D00519920 /* Location.swift */,
 				41E883BF20AF84DB0045A95B /* Main.storyboard */,
 				41E883E920AF8B1F0045A95B /* SecondViewController.swift */,
 				41E883C220AF84DB0045A95B /* Assets.xcassets */,
@@ -472,6 +475,7 @@
 			files = (
 				41E883EA20AF8B1F0045A95B /* SecondViewController.swift in Sources */,
 				41E883BE20AF84DB0045A95B /* ViewController.swift in Sources */,
+				411B264D20B4D01D00519920 /* Location.swift in Sources */,
 				41E883EC20AFBB8B0045A95B /* ATM.swift in Sources */,
 				41E883BC20AF84DB0045A95B /* AppDelegate.swift in Sources */,
 			);
