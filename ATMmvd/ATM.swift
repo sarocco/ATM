@@ -12,7 +12,8 @@ import CoreLocation
 
 class ATM: NSObject, Mappable {
     var id: Int?
-    var location: CLLocationCoordinate2D
+    //var location: CLLocationCoordinate2D
+    var location: Location?
     var address: String?
     var network: String?
     var status: String?
@@ -25,7 +26,7 @@ class ATM: NSObject, Mappable {
         super.init()
     }
     
-    init (id: Int, location: CLLocationCoordinate2D, address: String, network: String, status: String, money: Bool, deposits: Bool, image:String, open_hours: String){
+    init (id: Int, location: Location, address: String, network: String, status: String, money: Bool, deposits: Bool, image:String, open_hours: String){
         self.id = id
         self.location = location
         self.address = address

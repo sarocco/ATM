@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
     var atms:[ATM] = []
-    var annotation = MKPointAnnotation()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +27,11 @@ class ViewController: UIViewController {
         Alamofire.request(URL).responseArray { (response: DataResponse<[ATM]>) in
             self.atms = response.result.value!
             for atm in self.atms {
-                self.annotation.coordinate = atm.location
-                /*self.annotation.coordinate = CLLocationCoordinate2D(latitude: (atm.location.latitude)!, longitude: (atm.location.longitud)!)*/
-                self.annotation.title = atm.address
-                self.mapView.addAnnotation(self.annotation)
+                var annotation = MKPointAnnotation()
+                //self.annotation.coordinate = atm.location
+                annotation.coordinate = CLLocationCoordinate2D(latitude: (atm.location?.latitude)!, longitude: (atm.location?.longitud)!)
+                annotation.title = atm.address
+                self.mapView.addAnnotation(annotation)
             }
         }
     }
