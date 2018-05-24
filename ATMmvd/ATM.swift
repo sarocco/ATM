@@ -8,11 +8,13 @@
 
 import Foundation
 import ObjectMapper
-import CoreLocation
 
-class ATM: NSObject, Mappable {
+class ATM: Mappable {
+    
+    required init?(map: Map) {
+    }
+    
     var id: Int?
-    //var location: CLLocationCoordinate2D
     var location: Location?
     var address: String?
     var network: String?
@@ -21,10 +23,6 @@ class ATM: NSObject, Mappable {
     var accepts_deposits: Bool?
     var image: String?
     var open_hours: String?
-    
-    override init() {
-        super.init()
-    }
     
     init (id: Int, location: Location, address: String, network: String, status: String, money: Bool, deposits: Bool, image:String, open_hours: String){
         self.id = id
@@ -37,10 +35,6 @@ class ATM: NSObject, Mappable {
         self.image = image
         self.open_hours = open_hours
         
-    }
-    
-    convenience required init?(map: Map) {
-        self.init()
     }
     
     func mapping(map: Map) {

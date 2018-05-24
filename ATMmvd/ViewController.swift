@@ -27,13 +27,24 @@ class ViewController: UIViewController {
         Alamofire.request(URL).responseArray { (response: DataResponse<[ATM]>) in
             self.atms = response.result.value!
             for atm in self.atms {
-                var annotation = MKPointAnnotation()
-                //self.annotation.coordinate = atm.location
+                
+                let annotation = CustomAnnotation()
                 annotation.coordinate = CLLocationCoordinate2D(latitude: (atm.location?.latitude)!, longitude: (atm.location?.longitud)!)
                 annotation.title = atm.address
+                annotation.imageName = "pointer.png"
                 self.mapView.addAnnotation(annotation)
+                
+                /*var annotation = MKPointAnnotation()
+                annotation.coordinate = CLLocationCoordinate2D(latitude: (atm.location?.latitude)!, longitude: (atm.location?.longitud)!)
+                annotation.title = atm.address
+                self.mapView.addAnnotation(annotation)*/
             }
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
     }
 }
 
