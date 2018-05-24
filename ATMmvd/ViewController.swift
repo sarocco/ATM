@@ -16,6 +16,8 @@ class ViewController: UIViewController, MKMapViewDelegate{
     @IBOutlet weak var mapView: MKMapView!
     
     var atms:[ATM] = []
+    var icon: UIImage!
+    var button: UIButton!
 
     override func viewDidLoad() {
         
@@ -29,15 +31,13 @@ class ViewController: UIViewController, MKMapViewDelegate{
         Alamofire.request(URL).responseArray { (response: DataResponse<[ATM]>) in
             self.atms = response.result.value!
             for atm in self.atms {
-                let annotation = CustomAnnotation(atm: atm, imageName: atm.network!)
-                
+                let annotation = CustomAnnotation(atm: atm, iconName: atm.network!)
                 if (annotation.atm.network == "Banred"){
-                    annotation.imageName = "greenPin"
+                    annotation.iconName = "greenPin"
                 } else {
-                   annotation.imageName = "bluePin"
+                   annotation.iconName = "bluePin"
                 }
                self.mapView.addAnnotation(annotation)
-                
             }
         }
     }
@@ -46,34 +46,53 @@ class ViewController: UIViewController, MKMapViewDelegate{
         if !(annotation is CustomAnnotation) {
             return nil
         }
-        let reuseId = "test"
+        let reuseId = "id"
         var anView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
         if anView == nil {
             anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             anView!.canShowCallout = true
-            //llamar a una func
-            var button = UIButton(type: UIButtonType.detailDisclosure) as UIButton
+            button = UIButton(type: UIButtonType.detailDisclosure) as UIButton
             anView?.rightCalloutAccessoryView = button
-        } else {
+            
+            //button.setBackgroundImage(image, for: UIControlState.normal)
             anView!.annotation = annotation
         }
         let cpa = annotation as! CustomAnnotation
-        anView!.image = UIImage(named:cpa.imageName)
-        
+        anView!.image = UIImage(named:cpa.iconName)
         return anView
         
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView{
+            let an = view.annotation as! CustomAnnotation
+            //performSegue(withIdentifier: "goToATM", sender: (self))
+            let vController = storyboard?.instantiateViewController(withIdentifier: "idSecondViewController") as? SecondViewController
+            self.navigationController?.pushViewController(vController!, animated: true)
+
+            print(an.atm.address) // your annotation's title
+            vController?.atm = an.atm
+
+            //vController?.address.text = (view.annotation?.title)!
+        }
+    }
+    
+    
+    func setImage  (atms: [ATM]) -> UIImage{
+        for atm in atms {
+            if atm.network == "Banred"{
+             icon = #imageLiteral(resourceName: "banred-icon")
+            } else {
+             icon = #imageLiteral(resourceName: "brou-icon")
+            }
+        }
+        return icon
     }
     
     /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToATM" {
             let vController = segue.destination as! SecondViewController
-            if {
-                vController. =
-            } else {
-                vController.
-                
-            }
-
+        }
     }*/
 }
 

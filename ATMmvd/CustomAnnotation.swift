@@ -12,7 +12,7 @@ import MapKit
 class CustomAnnotation: NSObject, MKAnnotation {
     
     var atm: ATM
-    var imageName:String
+    var iconName:String
     
     var coordinate: CLLocationCoordinate2D {
         get {
@@ -45,9 +45,10 @@ class CustomAnnotation: NSObject, MKAnnotation {
         }
     }
     
-    init(atm: ATM, imageName: String) {
+    
+    init(atm: ATM, iconName: String) {
         self.atm = atm
-        self.imageName = imageName
+        self.iconName = iconName
         super.init()
     }
 }

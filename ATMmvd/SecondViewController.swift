@@ -18,8 +18,29 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var depositLbl: UILabel!
     @IBOutlet weak var networkImage: UIImageView!
     
+    var atm: ATM!
     
     override func viewDidLoad() {
+        
+        if let atm = atm {
+            //atmImage.image = UIImage(named: atm.image!)
+            statusLbl.text = atm.status
+            address.text = atm.address
+            openingHoursLbl.text = atm.open_hours
+            networkImage.image = UIImage(named: atm.network!)
+            if atm.has_money!{
+                moneyLbl.text = "Has Money"
+            } else {
+                moneyLbl.text = "No Money"
+            }
+            if atm.accepts_deposits!{
+                depositLbl.text = "Deposits"
+            } else {
+                depositLbl.text = "No Deposits"
+            }
+            
+
+        }
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
