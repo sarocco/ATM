@@ -45,7 +45,7 @@ class ATM: Mappable {
         status <- map["status"]
         has_money <- map["has_money"]
         accepts_deposits <- map["accepts_deposits"]
-        image <- map["image"]
+        image <- map["image_url"]
         open_hours <- map["open_hours"]
     }
     

@@ -27,10 +27,12 @@ class ViewController: UIViewController, MKMapViewDelegate{
     }
 
     func loadAtms(){
+        //Access to the url to get the info and save the information in the atms array
         let URL = "https://ucu-atm.herokuapp.com/api/atm"
         Alamofire.request(URL).responseArray { (response: DataResponse<[ATM]>) in
             self.atms = response.result.value!
             for atm in self.atms {
+                //Set a customAnnotation depending on the atm network
                 let annotation = CustomAnnotation(atm: atm, iconName: atm.network!)
                 if (annotation.atm.network == "Banred"){
                     annotation.iconName = "greenPin"
@@ -42,6 +44,7 @@ class ViewController: UIViewController, MKMapViewDelegate{
         }
     }
     
+    //Shows the atm information on the map when the pin is selected
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if !(annotation is CustomAnnotation) {
             return nil
@@ -51,10 +54,9 @@ class ViewController: UIViewController, MKMapViewDelegate{
         if anView == nil {
             anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             anView!.canShowCallout = true
+            //set a button on at the right of the annotation
             button = UIButton(type: UIButtonType.detailDisclosure) as UIButton
-            anView?.rightCalloutAccessoryView = button
-            
-            //button.setBackgroundImage(image, for: UIControlState.normal)
+            anView?.rightCalloutAccessoryView = button            
             anView!.annotation = annotation
         }
         let cpa = annotation as! CustomAnnotation
@@ -63,17 +65,13 @@ class ViewController: UIViewController, MKMapViewDelegate{
         
     }
     
+    //Send the information of the atm to the next view conroller when the button of the annotation is pressed
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView{
             let an = view.annotation as! CustomAnnotation
-            //performSegue(withIdentifier: "goToATM", sender: (self))
             let vController = storyboard?.instantiateViewController(withIdentifier: "idSecondViewController") as? SecondViewController
             self.navigationController?.pushViewController(vController!, animated: true)
-
-            print(an.atm.address) // your annotation's title
             vController?.atm = an.atm
-
-            //vController?.address.text = (view.annotation?.title)!
         }
     }
     
@@ -89,10 +87,5 @@ class ViewController: UIViewController, MKMapViewDelegate{
         return icon
     }
     
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToATM" {
-            let vController = segue.destination as! SecondViewController
-        }
-    }*/
 }
 

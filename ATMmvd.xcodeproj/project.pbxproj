@@ -134,11 +134,11 @@
 			children = (
 				41E883BB20AF84DB0045A95B /* AppDelegate.swift */,
 				41E883BD20AF84DB0045A95B /* ViewController.swift */,
+				41E883E920AF8B1F0045A95B /* SecondViewController.swift */,
 				411B268820B638C900519920 /* CustomAnnotation.swift */,
 				41E883EB20AFBB8B0045A95B /* ATM.swift */,
 				411B264C20B4D01D00519920 /* Location.swift */,
 				41E883BF20AF84DB0045A95B /* Main.storyboard */,
-				41E883E920AF8B1F0045A95B /* SecondViewController.swift */,
 				41E883C220AF84DB0045A95B /* Assets.xcassets */,
 				41E883C420AF84DB0045A95B /* LaunchScreen.storyboard */,
 				41E883C720AF84DB0045A95B /* Info.plist */,

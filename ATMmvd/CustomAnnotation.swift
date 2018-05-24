@@ -45,7 +45,6 @@ class CustomAnnotation: NSObject, MKAnnotation {
         }
     }
     
-    
     init(atm: ATM, iconName: String) {
         self.atm = atm
         self.iconName = iconName

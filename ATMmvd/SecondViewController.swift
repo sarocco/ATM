@@ -17,17 +17,24 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var moneyLbl: UILabel!
     @IBOutlet weak var depositLbl: UILabel!
     @IBOutlet weak var networkImage: UIImageView!
+    @IBOutlet weak var grayView: UIView!
     
     var atm: ATM!
     
     override func viewDidLoad() {
         
         if let atm = atm {
-            //atmImage.image = UIImage(named: atm.image!)
+            //let spiner = UIActivityIndicatorView.init()
             statusLbl.text = atm.status
+            statusLbl.layer.cornerRadius = 20
             address.text = atm.address
             openingHoursLbl.text = atm.open_hours
             networkImage.image = UIImage(named: atm.network!)
+            let url = URL(string: atm.image!)
+            atmImage.contentMode = .scaleAspectFill
+            //spiner.startAnimating()
+            downloadImage(url: url!)
+            //spiner.stopAnimating()
             if atm.has_money!{
                 moneyLbl.text = "Has Money"
             } else {
@@ -38,23 +45,29 @@ class SecondViewController: UIViewController {
             } else {
                 depositLbl.text = "No Deposits"
             }
-            
+            grayView.layer.cornerRadius = 20
 
         }
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
+    func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            completion(data, response, error)
+            }.resume()
+    }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func downloadImage(url: URL) {
+        print("Download Started")
+        getDataFromUrl(url: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished")
+            DispatchQueue.main.async() {
+                self.atmImage.image = UIImage(data: data)
+            }
+        }
     }
-    */
 
 }
