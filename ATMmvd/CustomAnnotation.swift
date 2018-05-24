@@ -9,6 +9,45 @@
 import Foundation
 import MapKit
 
-class CustomAnnotation: MKPointAnnotation {
-    var imageName: String!
+class CustomAnnotation: NSObject, MKAnnotation {
+    
+    var atm: ATM
+    var imageName:String
+    
+    var coordinate: CLLocationCoordinate2D {
+        get {
+            return CLLocationCoordinate2D(latitude: (atm.location?.latitude)!, longitude: (atm.location?.longitud)!)
+        }
+    }
+    
+    var title: String? {
+        get {
+            return atm.address
+        }
+    }
+    
+    var subtitle: String? {
+        get {
+            var money: String?
+            var deposit: String?
+            
+            if atm.has_money!{
+                money = "Has Money"
+            } else {
+                money = "No Money"
+            }
+            if atm.accepts_deposits!{
+                deposit = "Deposits"
+            }else{
+                deposit = "No Deposits"
+            }
+            return money! + " | " + deposit!
+        }
+    }
+    
+    init(atm: ATM, imageName: String) {
+        self.atm = atm
+        self.imageName = imageName
+        super.init()
+    }
 }
