@@ -18,13 +18,14 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var depositLbl: UILabel!
     @IBOutlet weak var networkImage: UIImageView!
     @IBOutlet weak var grayView: UIView!
+    @IBOutlet weak var spiner: UIActivityIndicatorView!
     
     var atm: ATM!
+    var gradientLayer: CAGradientLayer!
     
     override func viewDidLoad() {
         
         if let atm = atm {
-            //let spiner = UIActivityIndicatorView.init()
             statusLbl.text = atm.status
             statusLbl.layer.cornerRadius = 20
             address.text = atm.address
@@ -32,9 +33,9 @@ class SecondViewController: UIViewController {
             networkImage.image = UIImage(named: atm.network!)
             let url = URL(string: atm.image!)
             atmImage.contentMode = .scaleAspectFill
-            //spiner.startAnimating()
+            atmImage.clipsToBounds = true
+
             downloadImage(url: url!)
-            //spiner.stopAnimating()
             if atm.has_money!{
                 moneyLbl.text = "Has Money"
             } else {
@@ -60,12 +61,17 @@ class SecondViewController: UIViewController {
     
     func downloadImage(url: URL) {
         print("Download Started")
+        spiner.startAnimating()
         getDataFromUrl(url: url) { data, response, error in
+            DispatchQueue.main.async() {
+                self.spiner.stopAnimating()
+            }
             guard let data = data, error == nil else { return }
             print(response?.suggestedFilename ?? url.lastPathComponent)
             print("Download Finished")
             DispatchQueue.main.async() {
                 self.atmImage.image = UIImage(data: data)
+                self.spiner.stopAnimating()
             }
         }
     }

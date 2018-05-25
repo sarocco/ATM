@@ -56,7 +56,7 @@
                                 <rect key="frame" x="100" y="547" width="175" height="70"/>
                             </imageView>
                             <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1R8-Xm-ENw">
-                                <rect key="frame" x="0.0" y="214" width="125" height="123"/>
+                                <rect key="frame" x="0.0" y="170" width="125" height="167"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muq-v1-2b1">
                                         <rect key="frame" x="8" y="10" width="109" height="18"/>
@@ -100,7 +100,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Close" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7FP-Q6-guc">
-                                <rect key="frame" x="225" y="72" width="80" height="40"/>
+                                <rect key="frame" x="225" y="28" width="80" height="40"/>
                                 <color key="backgroundColor" red="0.99628132581710815" green="0.98432749509811401" blue="0.98405665159225464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="IR9-uc-v59"/>
@@ -110,6 +110,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="zTy-EK-c3U">
+                                <rect key="frame" x="177" y="333.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -117,10 +120,13 @@
                             <constraint firstItem="7FP-Q6-guc" firstAttribute="leading" secondItem="ADU-bo-lOg" secondAttribute="leading" constant="225" id="24X-z5-QvA"/>
                             <constraint firstItem="ADU-bo-lOg" firstAttribute="trailing" secondItem="1R8-Xm-ENw" secondAttribute="trailing" constant="250" id="9Si-yS-psI"/>
                             <constraint firstItem="6f3-L7-jt0" firstAttribute="centerX" secondItem="ADU-bo-lOg" secondAttribute="centerX" id="9fF-ny-ed1"/>
+                            <constraint firstItem="3XQ-AO-Y5V" firstAttribute="centerX" secondItem="3zF-Lw-Shf" secondAttribute="centerX" id="FC8-KO-75W"/>
                             <constraint firstItem="3XQ-AO-Y5V" firstAttribute="top" secondItem="3zF-Lw-Shf" secondAttribute="top" id="Hf2-1m-Imh"/>
                             <constraint firstItem="1R8-Xm-ENw" firstAttribute="leading" secondItem="ADU-bo-lOg" secondAttribute="leading" id="Ime-Ak-VTI"/>
                             <constraint firstItem="6f3-L7-jt0" firstAttribute="top" secondItem="1R8-Xm-ENw" secondAttribute="bottom" constant="210" id="Q4c-z6-qjs"/>
+                            <constraint firstItem="zTy-EK-c3U" firstAttribute="centerX" secondItem="ADU-bo-lOg" secondAttribute="centerX" id="RVI-yh-1fR"/>
                             <constraint firstItem="ADU-bo-lOg" firstAttribute="bottom" secondItem="6f3-L7-jt0" secondAttribute="bottom" constant="50" id="Voe-dK-NJF"/>
+                            <constraint firstItem="zTy-EK-c3U" firstAttribute="centerY" secondItem="ADU-bo-lOg" secondAttribute="centerY" id="bng-QP-5MM"/>
                             <constraint firstItem="ADU-bo-lOg" firstAttribute="bottom" secondItem="3XQ-AO-Y5V" secondAttribute="bottom" constant="220" id="e3E-8t-H34"/>
                             <constraint firstItem="1R8-Xm-ENw" firstAttribute="top" secondItem="ADU-bo-lOg" secondAttribute="top" constant="150" id="ei8-Jt-php"/>
                             <constraint firstItem="3XQ-AO-Y5V" firstAttribute="leading" secondItem="ADU-bo-lOg" secondAttribute="leading" id="exg-jV-sTd"/>
@@ -130,6 +136,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ADU-bo-lOg"/>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="address" destination="muq-v1-2b1" id="es5-gf-9N3"/>
                         <outlet property="atmImage" destination="3XQ-AO-Y5V" id="nvU-c7-Q30"/>
@@ -138,6 +145,7 @@
                         <outlet property="moneyLbl" destination="7qB-FX-GYE" id="efS-yT-WYC"/>
                         <outlet property="networkImage" destination="6f3-L7-jt0" id="v5n-At-93J"/>
                         <outlet property="openingHoursLbl" destination="IOV-Y5-uen" id="MRc-Is-be3"/>
+                        <outlet property="spiner" destination="zTy-EK-c3U" id="708-xZ-uHm"/>
                         <outlet property="statusLbl" destination="7FP-Q6-guc" id="uno-PU-Kvd"/>
                     </connections>
                 </viewController>
