@@ -54,9 +54,10 @@ class ViewController: UIViewController, MKMapViewDelegate{
         if anView == nil {
             anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             anView!.canShowCallout = true
+ 
             //set a button on at the right of the annotation
             button = UIButton(type: UIButtonType.detailDisclosure) as UIButton
-            anView?.rightCalloutAccessoryView = button            
+            anView?.rightCalloutAccessoryView = button
             anView!.annotation = annotation
         }
         let cpa = annotation as! CustomAnnotation
@@ -74,18 +75,5 @@ class ViewController: UIViewController, MKMapViewDelegate{
             vController?.atm = an.atm
         }
     }
-    
-    
-    func setImage  (atms: [ATM]) -> UIImage{
-        for atm in atms {
-            if atm.network == "Banred"{
-             icon = #imageLiteral(resourceName: "banred-icon")
-            } else {
-             icon = #imageLiteral(resourceName: "brou-icon")
-            }
-        }
-        return icon
-    }
-    
 }
 
